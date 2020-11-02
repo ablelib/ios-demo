@@ -1,0 +1,675 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 51;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		6A758379255043C600E4D99C /* DevicesList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A758378255043C600E4D99C /* DevicesList.swift */; };
+		6AC8A4F3254FF96100E678DE /* AbleLib_iOS_demoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AC8A4F2254FF96100E678DE /* AbleLib_iOS_demoApp.swift */; };
+		6AC8A4F5254FF96100E678DE /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AC8A4F4254FF96100E678DE /* ContentView.swift */; };
+		6AC8A4F7254FF96300E678DE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6AC8A4F6254FF96300E678DE /* Assets.xcassets */; };
+		6AC8A4FA254FF96300E678DE /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6AC8A4F9254FF96300E678DE /* Preview Assets.xcassets */; };
+		6AC8A505254FF96300E678DE /* AbleLib_iOS_demoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AC8A504254FF96300E678DE /* AbleLib_iOS_demoTests.swift */; };
+		6AC8A510254FF96300E678DE /* AbleLib_iOS_demoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AC8A50F254FF96300E678DE /* AbleLib_iOS_demoUITests.swift */; };
+		6AC8A526254FFCFD00E678DE /* ScanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AC8A525254FFCFD00E678DE /* ScanView.swift */; };
+		6AC8A52B2550001A00E678DE /* StorageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AC8A52A2550001A00E678DE /* StorageView.swift */; };
+		6AC8A5302550024000E678DE /* CommView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AC8A52F2550024000E678DE /* CommView.swift */; };
+		6AC8A5352550024700E678DE /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AC8A5342550024700E678DE /* SettingsView.swift */; };
+		87B2D35D7948B176521CF9E7 /* Pods_AbleLib_iOS_demo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3436087A12CED05772F1BEEE /* Pods_AbleLib_iOS_demo.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		6AC8A501254FF96300E678DE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6AC8A4E7254FF96100E678DE /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6AC8A4EE254FF96100E678DE;
+			remoteInfo = "AbleLib iOS demo";
+		};
+		6AC8A50C254FF96300E678DE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6AC8A4E7254FF96100E678DE /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6AC8A4EE254FF96100E678DE;
+			remoteInfo = "AbleLib iOS demo";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		2482D86705414560040C2F98 /* Pods-AbleLib iOS demo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AbleLib iOS demo.release.xcconfig"; path = "Target Support Files/Pods-AbleLib iOS demo/Pods-AbleLib iOS demo.release.xcconfig"; sourceTree = "<group>"; };
+		3436087A12CED05772F1BEEE /* Pods_AbleLib_iOS_demo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AbleLib_iOS_demo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6A758378255043C600E4D99C /* DevicesList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevicesList.swift; sourceTree = "<group>"; };
+		6AC8A4EF254FF96100E678DE /* AbleLib iOS demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "AbleLib iOS demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		6AC8A4F2254FF96100E678DE /* AbleLib_iOS_demoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbleLib_iOS_demoApp.swift; sourceTree = "<group>"; };
+		6AC8A4F4254FF96100E678DE /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		6AC8A4F6254FF96300E678DE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		6AC8A4F9254FF96300E678DE /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		6AC8A4FB254FF96300E678DE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6AC8A500254FF96300E678DE /* AbleLib iOS demoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "AbleLib iOS demoTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		6AC8A504254FF96300E678DE /* AbleLib_iOS_demoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbleLib_iOS_demoTests.swift; sourceTree = "<group>"; };
+		6AC8A506254FF96300E678DE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6AC8A50B254FF96300E678DE /* AbleLib iOS demoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "AbleLib iOS demoUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		6AC8A50F254FF96300E678DE /* AbleLib_iOS_demoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbleLib_iOS_demoUITests.swift; sourceTree = "<group>"; };
+		6AC8A511254FF96300E678DE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6AC8A525254FFCFD00E678DE /* ScanView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanView.swift; sourceTree = "<group>"; };
+		6AC8A52A2550001A00E678DE /* StorageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageView.swift; sourceTree = "<group>"; };
+		6AC8A52F2550024000E678DE /* CommView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommView.swift; sourceTree = "<group>"; };
+		6AC8A5342550024700E678DE /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		F3A9AF7927F3D854A81023BC /* Pods-AbleLib iOS demo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AbleLib iOS demo.debug.xcconfig"; path = "Target Support Files/Pods-AbleLib iOS demo/Pods-AbleLib iOS demo.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		6AC8A4EC254FF96100E678DE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				87B2D35D7948B176521CF9E7 /* Pods_AbleLib_iOS_demo.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6AC8A4FD254FF96300E678DE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6AC8A508254FF96300E678DE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		6AC8A4E6254FF96100E678DE = {
+			isa = PBXGroup;
+			children = (
+				6AC8A4F1254FF96100E678DE /* AbleLib iOS demo */,
+				6AC8A503254FF96300E678DE /* AbleLib iOS demoTests */,
+				6AC8A50E254FF96300E678DE /* AbleLib iOS demoUITests */,
+				6AC8A4F0254FF96100E678DE /* Products */,
+				9317FFD425449E2B647A4624 /* Pods */,
+				8121FC96D163C8BCB1E531F4 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		6AC8A4F0254FF96100E678DE /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				6AC8A4EF254FF96100E678DE /* AbleLib iOS demo.app */,
+				6AC8A500254FF96300E678DE /* AbleLib iOS demoTests.xctest */,
+				6AC8A50B254FF96300E678DE /* AbleLib iOS demoUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		6AC8A4F1254FF96100E678DE /* AbleLib iOS demo */ = {
+			isa = PBXGroup;
+			children = (
+				6AC8A4F2254FF96100E678DE /* AbleLib_iOS_demoApp.swift */,
+				6AC8A4F4254FF96100E678DE /* ContentView.swift */,
+				6AC8A4F6254FF96300E678DE /* Assets.xcassets */,
+				6AC8A4FB254FF96300E678DE /* Info.plist */,
+				6AC8A4F8254FF96300E678DE /* Preview Content */,
+				6AC8A525254FFCFD00E678DE /* ScanView.swift */,
+				6AC8A52A2550001A00E678DE /* StorageView.swift */,
+				6AC8A52F2550024000E678DE /* CommView.swift */,
+				6AC8A5342550024700E678DE /* SettingsView.swift */,
+				6A758378255043C600E4D99C /* DevicesList.swift */,
+			);
+			path = "AbleLib iOS demo";
+			sourceTree = "<group>";
+		};
+		6AC8A4F8254FF96300E678DE /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				6AC8A4F9254FF96300E678DE /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		6AC8A503254FF96300E678DE /* AbleLib iOS demoTests */ = {
+			isa = PBXGroup;
+			children = (
+				6AC8A504254FF96300E678DE /* AbleLib_iOS_demoTests.swift */,
+				6AC8A506254FF96300E678DE /* Info.plist */,
+			);
+			path = "AbleLib iOS demoTests";
+			sourceTree = "<group>";
+		};
+		6AC8A50E254FF96300E678DE /* AbleLib iOS demoUITests */ = {
+			isa = PBXGroup;
+			children = (
+				6AC8A50F254FF96300E678DE /* AbleLib_iOS_demoUITests.swift */,
+				6AC8A511254FF96300E678DE /* Info.plist */,
+			);
+			path = "AbleLib iOS demoUITests";
+			sourceTree = "<group>";
+		};
+		8121FC96D163C8BCB1E531F4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3436087A12CED05772F1BEEE /* Pods_AbleLib_iOS_demo.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		9317FFD425449E2B647A4624 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				F3A9AF7927F3D854A81023BC /* Pods-AbleLib iOS demo.debug.xcconfig */,
+				2482D86705414560040C2F98 /* Pods-AbleLib iOS demo.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		6AC8A4EE254FF96100E678DE /* AbleLib iOS demo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6AC8A514254FF96300E678DE /* Build configuration list for PBXNativeTarget "AbleLib iOS demo" */;
+			buildPhases = (
+				2AF0E3BE6D1E35B059265FC1 /* [CP] Check Pods Manifest.lock */,
+				6AC8A4EB254FF96100E678DE /* Sources */,
+				6AC8A4EC254FF96100E678DE /* Frameworks */,
+				6AC8A4ED254FF96100E678DE /* Resources */,
+				861ACFA85EF458EFF7C40D5A /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "AbleLib iOS demo";
+			productName = "AbleLib iOS demo";
+			productReference = 6AC8A4EF254FF96100E678DE /* AbleLib iOS demo.app */;
+			productType = "com.apple.product-type.application";
+		};
+		6AC8A4FF254FF96300E678DE /* AbleLib iOS demoTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6AC8A517254FF96300E678DE /* Build configuration list for PBXNativeTarget "AbleLib iOS demoTests" */;
+			buildPhases = (
+				6AC8A4FC254FF96300E678DE /* Sources */,
+				6AC8A4FD254FF96300E678DE /* Frameworks */,
+				6AC8A4FE254FF96300E678DE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				6AC8A502254FF96300E678DE /* PBXTargetDependency */,
+			);
+			name = "AbleLib iOS demoTests";
+			productName = "AbleLib iOS demoTests";
+			productReference = 6AC8A500254FF96300E678DE /* AbleLib iOS demoTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		6AC8A50A254FF96300E678DE /* AbleLib iOS demoUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6AC8A51A254FF96300E678DE /* Build configuration list for PBXNativeTarget "AbleLib iOS demoUITests" */;
+			buildPhases = (
+				6AC8A507254FF96300E678DE /* Sources */,
+				6AC8A508254FF96300E678DE /* Frameworks */,
+				6AC8A509254FF96300E678DE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				6AC8A50D254FF96300E678DE /* PBXTargetDependency */,
+			);
+			name = "AbleLib iOS demoUITests";
+			productName = "AbleLib iOS demoUITests";
+			productReference = 6AC8A50B254FF96300E678DE /* AbleLib iOS demoUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		6AC8A4E7254FF96100E678DE /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1210;
+				LastUpgradeCheck = 1210;
+				TargetAttributes = {
+					6AC8A4EE254FF96100E678DE = {
+						CreatedOnToolsVersion = 12.1;
+					};
+					6AC8A4FF254FF96300E678DE = {
+						CreatedOnToolsVersion = 12.1;
+						TestTargetID = 6AC8A4EE254FF96100E678DE;
+					};
+					6AC8A50A254FF96300E678DE = {
+						CreatedOnToolsVersion = 12.1;
+						TestTargetID = 6AC8A4EE254FF96100E678DE;
+					};
+				};
+			};
+			buildConfigurationList = 6AC8A4EA254FF96100E678DE /* Build configuration list for PBXProject "AbleLib iOS demo" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 6AC8A4E6254FF96100E678DE;
+			productRefGroup = 6AC8A4F0254FF96100E678DE /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				6AC8A4EE254FF96100E678DE /* AbleLib iOS demo */,
+				6AC8A4FF254FF96300E678DE /* AbleLib iOS demoTests */,
+				6AC8A50A254FF96300E678DE /* AbleLib iOS demoUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		6AC8A4ED254FF96100E678DE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6AC8A4FA254FF96300E678DE /* Preview Assets.xcassets in Resources */,
+				6AC8A4F7254FF96300E678DE /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6AC8A4FE254FF96300E678DE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6AC8A509254FF96300E678DE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		2AF0E3BE6D1E35B059265FC1 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-AbleLib iOS demo-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		861ACFA85EF458EFF7C40D5A /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-AbleLib iOS demo/Pods-AbleLib iOS demo-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-AbleLib iOS demo/Pods-AbleLib iOS demo-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-AbleLib iOS demo/Pods-AbleLib iOS demo-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		6AC8A4EB254FF96100E678DE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6AC8A5302550024000E678DE /* CommView.swift in Sources */,
+				6AC8A52B2550001A00E678DE /* StorageView.swift in Sources */,
+				6AC8A4F5254FF96100E678DE /* ContentView.swift in Sources */,
+				6AC8A5352550024700E678DE /* SettingsView.swift in Sources */,
+				6AC8A4F3254FF96100E678DE /* AbleLib_iOS_demoApp.swift in Sources */,
+				6AC8A526254FFCFD00E678DE /* ScanView.swift in Sources */,
+				6A758379255043C600E4D99C /* DevicesList.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6AC8A4FC254FF96300E678DE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6AC8A505254FF96300E678DE /* AbleLib_iOS_demoTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6AC8A507254FF96300E678DE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6AC8A510254FF96300E678DE /* AbleLib_iOS_demoUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		6AC8A502254FF96300E678DE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6AC8A4EE254FF96100E678DE /* AbleLib iOS demo */;
+			targetProxy = 6AC8A501254FF96300E678DE /* PBXContainerItemProxy */;
+		};
+		6AC8A50D254FF96300E678DE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6AC8A4EE254FF96100E678DE /* AbleLib iOS demo */;
+			targetProxy = 6AC8A50C254FF96300E678DE /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		6AC8A512254FF96300E678DE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		6AC8A513254FF96300E678DE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		6AC8A515254FF96300E678DE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F3A9AF7927F3D854A81023BC /* Pods-AbleLib iOS demo.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"AbleLib iOS demo/Preview Content\"";
+				DEVELOPMENT_TEAM = 933P3KNE7W;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = "AbleLib iOS demo/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.ablelib.AbleLib-iOS-demo";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		6AC8A516254FF96300E678DE /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2482D86705414560040C2F98 /* Pods-AbleLib iOS demo.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"AbleLib iOS demo/Preview Content\"";
+				DEVELOPMENT_TEAM = 933P3KNE7W;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = "AbleLib iOS demo/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.ablelib.AbleLib-iOS-demo";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		6AC8A518254FF96300E678DE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 933P3KNE7W;
+				INFOPLIST_FILE = "AbleLib iOS demoTests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.ablelib.AbleLib-iOS-demoTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AbleLib iOS demo.app/AbleLib iOS demo";
+			};
+			name = Debug;
+		};
+		6AC8A519254FF96300E678DE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 933P3KNE7W;
+				INFOPLIST_FILE = "AbleLib iOS demoTests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.ablelib.AbleLib-iOS-demoTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AbleLib iOS demo.app/AbleLib iOS demo";
+			};
+			name = Release;
+		};
+		6AC8A51B254FF96300E678DE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 933P3KNE7W;
+				INFOPLIST_FILE = "AbleLib iOS demoUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.ablelib.AbleLib-iOS-demoUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "AbleLib iOS demo";
+			};
+			name = Debug;
+		};
+		6AC8A51C254FF96300E678DE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 933P3KNE7W;
+				INFOPLIST_FILE = "AbleLib iOS demoUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.ablelib.AbleLib-iOS-demoUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "AbleLib iOS demo";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		6AC8A4EA254FF96100E678DE /* Build configuration list for PBXProject "AbleLib iOS demo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6AC8A512254FF96300E678DE /* Debug */,
+				6AC8A513254FF96300E678DE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6AC8A514254FF96300E678DE /* Build configuration list for PBXNativeTarget "AbleLib iOS demo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6AC8A515254FF96300E678DE /* Debug */,
+				6AC8A516254FF96300E678DE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6AC8A517254FF96300E678DE /* Build configuration list for PBXNativeTarget "AbleLib iOS demoTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6AC8A518254FF96300E678DE /* Debug */,
+				6AC8A519254FF96300E678DE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6AC8A51A254FF96300E678DE /* Build configuration list for PBXNativeTarget "AbleLib iOS demoUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6AC8A51B254FF96300E678DE /* Debug */,
+				6AC8A51C254FF96300E678DE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 6AC8A4E7254FF96100E678DE /* Project object */;
+}
