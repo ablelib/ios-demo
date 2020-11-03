@@ -6,10 +6,32 @@
 //
 
 import SwiftUI
+import Able
 
 struct SettingsView: View {
+    private let QOS = [QualityOfService.LOW_ENERGY, QualityOfService.DEFAULT, QualityOfService.INTENSIVE]
+    @State private var refresh = false
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack(alignment: .leading, spacing: 10) {
+            if refresh {
+                EmptyView()
+            }
+            Text("Quality of Service")
+            ForEach(0..<QOS.count) { i in
+                HStack {
+                    Button(String(describing: QOS[i])) {
+                        AbleManager.shared.qualityOfService = QOS[i]
+                        refresh.toggle()
+                    }
+                    Spacer()
+                    if QOS[i] == AbleManager.shared.qualityOfService {
+                        Image(systemName: "checkmark")
+                    }
+                }
+            }
+            Spacer()
+        }.padding()
     }
 }
 

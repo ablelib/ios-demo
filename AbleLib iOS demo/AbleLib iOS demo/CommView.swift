@@ -9,42 +9,56 @@ import SwiftUI
 import Able
 
 struct CommView: View {
-    @State private var devices = [AbleDevice]()
-    @State private var comm: AbleComm? = nil
+    @State private var phase = Phase.disconnected(Array(AbleDeviceStorage.devices))
+    @State private var errorMessage: String? = nil
     
     var body: some View {
         VStack {
-            if comm != nil {
-                HStack {
-                    Button("Disconnect") {
-                        comm?.disconnect { _, error in
-                            if let error = error {
-                                print("Error disconnecting \(error)")
-                            } else {
-                                comm = nil
-                            }
-                        }
-                    }
-                }
+            errorView
+            if case let .disconnected(devices) = phase {
+                deviceList(devices)
+            } else if case let .connected(comm) = phase {
+                connectedPanel(comm)
+            } else if case let .discoveredServices(comm, services) = phase {
+                servicesList(comm, services)
+            } else if case let .discoveredCharacteristics(comm, characteristics) = phase {
+                characteristicsList(comm, characteristics)
+            }
+            Spacer()
+        }.onAppear(perform: refresh)
+    }
+    
+    private var errorView: some View {
+        Group {
+            if errorMessage != nil {
+                Text(errorMessage!)
+                    .padding()
+                    .frame(minWidth: 0, maxWidth: .infinity)
+                    .foregroundColor(.white)
+                    .background(Color.red)
+            }
+        }
+    }
+    
+    private func deviceList(_ devices: [AbleDevice]) -> some View {
+        Group {
+            if devices.isEmpty {
+                Text("Scan for devices and then add them to the storage")
             } else {
-                if devices.isEmpty {
-                    Text("Scan for devices and then add them to the storage")
-                } else {
-                    DevicesList(devices: $devices) { device in
-                        Button {
-                            comm = device.comm
-                            comm?.connect(onSuccess: { device in
-                                
-                            }, onFailure: { (device, error) in
-                                
-                            })
-                        } label: {
-                            Text("Connect")
-                                .foregroundColor(.white)
-                                .padding()
-                                .background(RoundedRectangle(cornerRadius: 5)
-                                                .foregroundColor(.green))
-                        }
+                DevicesList(devices: .constant(devices)) { device in
+                    Button {
+                        let comm = device.comm
+                        comm?.connect(onSuccess: { device in
+                            phase = .connected(comm!)
+                        }, onFailure: { (device, error) in
+                            errorMessage = error.localizedDescription
+                        })
+                    } label: {
+                        Text("Connect")
+                            .foregroundColor(.white)
+                            .padding()
+                            .background(RoundedRectangle(cornerRadius: 5)
+                                            .foregroundColor(.green))
                     }
                 }
             }
@@ -53,11 +67,81 @@ struct CommView: View {
                     refresh()
                 }
             }.padding(.vertical, 10)
-        }.onAppear(perform: refresh)
+        }
     }
     
     private func refresh() {
-        devices = Array(AbleDeviceStorage.devices)
+        phase = .disconnected(Array(AbleDeviceStorage.devices))
+    }
+    
+    private func connectedPanel(_ comm: AbleComm) -> some View {
+        Group {
+            Text("Connected!")
+            HStack {
+                disconnectButton(comm)
+                Spacer()
+                Button("Discover services") {
+                    comm.discoverServices(nil) { device, error in
+                        if let error = error {
+                            errorMessage = error.localizedDescription
+                        } else if let services = device.services {
+                            phase = .discoveredServices(comm, services)
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
+    private func servicesList(_ comm: AbleComm, _ services: [AbleService]) -> some View {
+        Group {
+            disconnectButton(comm)
+            List(services, id: \.self) { service in
+                HStack {
+                    Text(service.uuid.uuidString)
+                    Spacer()
+                    Button("Discover characteristics") {
+                        comm.discoverCharacteristics(nil, for: service) { (device, service, error) in
+                            if let error = error {
+                                errorMessage = error.localizedDescription
+                            } else if let service = service,
+                                      let characteristics = service.characteristics {
+                                phase = .discoveredCharacteristics(comm, characteristics)
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
+    private func characteristicsList(_ comm: AbleComm, _ characteristics: [AbleCharacteristic]) -> some View {
+        Group {
+            disconnectButton(comm)
+            List(characteristics, id: \.self) { char in
+                Text(char.description)
+            }
+        }
+    }
+    
+    private func disconnectButton(_ comm: AbleComm) -> some View {
+        Button("Disconnect") {
+            comm.disconnect { _, error in
+                if let error = error {
+                    errorMessage = error.localizedDescription
+                } else {
+                    refresh()
+                }
+            }
+        }
+    }
+    
+    private enum Phase {
+        case disconnected([AbleDevice]),
+             connected(AbleComm),
+             discoveredServices(AbleComm, [AbleService]),
+             discoveredCharacteristics(AbleComm, [AbleCharacteristic]),
+             communicate(AbleComm)
     }
 }
 
