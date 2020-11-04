@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1ACFD086DD55F08D90982B80 /* Pods_AbleLib_iOS_demo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5665E6AE46AAB81394C3A643 /* Pods_AbleLib_iOS_demo.framework */; };
+		6A6D36562552B1EE001D8A09 /* TestComm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A6D36552552B1EE001D8A09 /* TestComm.swift */; };
 		6A758379255043C600E4D99C /* DevicesList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A758378255043C600E4D99C /* DevicesList.swift */; };
 		6AC8A4F3254FF96100E678DE /* AbleLib_iOS_demoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AC8A4F2254FF96100E678DE /* AbleLib_iOS_demoApp.swift */; };
 		6AC8A4F5254FF96100E678DE /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AC8A4F4254FF96100E678DE /* ContentView.swift */; };
@@ -18,7 +20,6 @@
 		6AC8A52B2550001A00E678DE /* StorageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AC8A52A2550001A00E678DE /* StorageView.swift */; };
 		6AC8A5302550024000E678DE /* CommView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AC8A52F2550024000E678DE /* CommView.swift */; };
 		6AC8A5352550024700E678DE /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AC8A5342550024700E678DE /* SettingsView.swift */; };
-		D0588D6A40FFE10E981CD3CF /* Pods_AbleLib_iOS_demo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 74B907D0BDB33985202A1534 /* Pods_AbleLib_iOS_demo.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,7 +40,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		2F7A0685BB9CBC5E0173119D /* Pods-AbleLib iOS demo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AbleLib iOS demo.release.xcconfig"; path = "Target Support Files/Pods-AbleLib iOS demo/Pods-AbleLib iOS demo.release.xcconfig"; sourceTree = "<group>"; };
+		3EC95863A8BB4F673AD61C4B /* Pods-AbleLib iOS demo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AbleLib iOS demo.debug.xcconfig"; path = "Target Support Files/Pods-AbleLib iOS demo/Pods-AbleLib iOS demo.debug.xcconfig"; sourceTree = "<group>"; };
+		4590B612ECD6259631C2A0F5 /* Pods-AbleLib iOS demo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AbleLib iOS demo.release.xcconfig"; path = "Target Support Files/Pods-AbleLib iOS demo/Pods-AbleLib iOS demo.release.xcconfig"; sourceTree = "<group>"; };
+		5665E6AE46AAB81394C3A643 /* Pods_AbleLib_iOS_demo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AbleLib_iOS_demo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6A6D36552552B1EE001D8A09 /* TestComm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestComm.swift; sourceTree = "<group>"; };
 		6A758378255043C600E4D99C /* DevicesList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevicesList.swift; sourceTree = "<group>"; };
 		6AC8A4EF254FF96100E678DE /* AbleLib iOS demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "AbleLib iOS demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6AC8A4F2254FF96100E678DE /* AbleLib_iOS_demoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbleLib_iOS_demoApp.swift; sourceTree = "<group>"; };
@@ -57,8 +61,6 @@
 		6AC8A52A2550001A00E678DE /* StorageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageView.swift; sourceTree = "<group>"; };
 		6AC8A52F2550024000E678DE /* CommView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommView.swift; sourceTree = "<group>"; };
 		6AC8A5342550024700E678DE /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
-		74B907D0BDB33985202A1534 /* Pods_AbleLib_iOS_demo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AbleLib_iOS_demo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		EAC003ECFECA052AC207DB04 /* Pods-AbleLib iOS demo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AbleLib iOS demo.debug.xcconfig"; path = "Target Support Files/Pods-AbleLib iOS demo/Pods-AbleLib iOS demo.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,7 +68,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D0588D6A40FFE10E981CD3CF /* Pods_AbleLib_iOS_demo.framework in Frameworks */,
+				1ACFD086DD55F08D90982B80 /* Pods_AbleLib_iOS_demo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -95,7 +97,7 @@
 				6AC8A50E254FF96300E678DE /* AbleLib iOS demoUITests */,
 				6AC8A4F0254FF96100E678DE /* Products */,
 				9317FFD425449E2B647A4624 /* Pods */,
-				6F8847A84C17AAC245D3F02C /* Frameworks */,
+				E143F0849651F389E5294DC1 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -122,6 +124,7 @@
 				6AC8A52F2550024000E678DE /* CommView.swift */,
 				6AC8A5342550024700E678DE /* SettingsView.swift */,
 				6A758378255043C600E4D99C /* DevicesList.swift */,
+				6A6D36552552B1EE001D8A09 /* TestComm.swift */,
 			);
 			path = "AbleLib iOS demo";
 			sourceTree = "<group>";
@@ -152,21 +155,21 @@
 			path = "AbleLib iOS demoUITests";
 			sourceTree = "<group>";
 		};
-		6F8847A84C17AAC245D3F02C /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				74B907D0BDB33985202A1534 /* Pods_AbleLib_iOS_demo.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 		9317FFD425449E2B647A4624 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				EAC003ECFECA052AC207DB04 /* Pods-AbleLib iOS demo.debug.xcconfig */,
-				2F7A0685BB9CBC5E0173119D /* Pods-AbleLib iOS demo.release.xcconfig */,
+				3EC95863A8BB4F673AD61C4B /* Pods-AbleLib iOS demo.debug.xcconfig */,
+				4590B612ECD6259631C2A0F5 /* Pods-AbleLib iOS demo.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		E143F0849651F389E5294DC1 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5665E6AE46AAB81394C3A643 /* Pods_AbleLib_iOS_demo.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -176,11 +179,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 6AC8A514254FF96300E678DE /* Build configuration list for PBXNativeTarget "AbleLib iOS demo" */;
 			buildPhases = (
-				BC78218DF516D7C0AED12D97 /* [CP] Check Pods Manifest.lock */,
+				5A63B59CE1A3B0EF94CC05E1 /* [CP] Check Pods Manifest.lock */,
 				6AC8A4EB254FF96100E678DE /* Sources */,
 				6AC8A4EC254FF96100E678DE /* Frameworks */,
 				6AC8A4ED254FF96100E678DE /* Resources */,
-				B091329962E157A16CD7F7FA /* [CP] Embed Pods Frameworks */,
+				43B2A053B054B17D2A13AF59 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -296,7 +299,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		B091329962E157A16CD7F7FA /* [CP] Embed Pods Frameworks */ = {
+		43B2A053B054B17D2A13AF59 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -313,7 +316,7 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-AbleLib iOS demo/Pods-AbleLib iOS demo-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		BC78218DF516D7C0AED12D97 /* [CP] Check Pods Manifest.lock */ = {
+		5A63B59CE1A3B0EF94CC05E1 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -347,6 +350,7 @@
 				6AC8A4F5254FF96100E678DE /* ContentView.swift in Sources */,
 				6AC8A5352550024700E678DE /* SettingsView.swift in Sources */,
 				6AC8A4F3254FF96100E678DE /* AbleLib_iOS_demoApp.swift in Sources */,
+				6A6D36562552B1EE001D8A09 /* TestComm.swift in Sources */,
 				6AC8A526254FFCFD00E678DE /* ScanView.swift in Sources */,
 				6A758379255043C600E4D99C /* DevicesList.swift in Sources */,
 			);
@@ -502,7 +506,7 @@
 		};
 		6AC8A515254FF96300E678DE /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = EAC003ECFECA052AC207DB04 /* Pods-AbleLib iOS demo.debug.xcconfig */;
+			baseConfigurationReference = 3EC95863A8BB4F673AD61C4B /* Pods-AbleLib iOS demo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -525,7 +529,7 @@
 		};
 		6AC8A516254FF96300E678DE /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2F7A0685BB9CBC5E0173119D /* Pods-AbleLib iOS demo.release.xcconfig */;
+			baseConfigurationReference = 4590B612ECD6259631C2A0F5 /* Pods-AbleLib iOS demo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

@@ -48,11 +48,13 @@ struct CommView: View {
                 DevicesList(devices: .constant(devices)) { device in
                     Button {
                         let comm = device.comm
-                        comm?.connect(onSuccess: { device in
-                            phase = .connected(comm!)
-                        }, onFailure: { (device, error) in
-                            errorMessage = error.localizedDescription
-                        })
+                        comm?.connect { result in
+                            result.onSuccess { device in
+                                phase = .connected(comm!)
+                            }.onFailure { error in
+                                errorMessage = error.localizedDescription
+                            }
+                        }
                     } label: {
                         Text("Connect")
                             .foregroundColor(.white)
@@ -81,12 +83,18 @@ struct CommView: View {
                 disconnectButton(comm)
                 Spacer()
                 Button("Discover services") {
-                    comm.discoverServices(nil) { device, error in
-                        if let error = error {
-                            errorMessage = error.localizedDescription
-                        } else if let services = device.services {
+                    comm.discoverServices(nil) { result in
+                        result.onSuccess { services in
                             phase = .discoveredServices(comm, services)
+                        }.onFailure { error in
+                            errorMessage = error.localizedDescription
                         }
+                    }
+                }
+                Spacer()
+                Button("Game comm") {
+                    TestComm(comm: comm).start { line in
+                        print(line)
                     }
                 }
             }
@@ -101,12 +109,11 @@ struct CommView: View {
                     Text(service.uuid.uuidString)
                     Spacer()
                     Button("Discover characteristics") {
-                        comm.discoverCharacteristics(nil, for: service) { (device, service, error) in
-                            if let error = error {
+                        comm.discoverCharacteristics(nil, for: service) { result in
+                            result.onSuccess { chars in
+                                phase = .discoveredCharacteristics(comm, chars)
+                            }.onFailure { error in
                                 errorMessage = error.localizedDescription
-                            } else if let service = service,
-                                      let characteristics = service.characteristics {
-                                phase = .discoveredCharacteristics(comm, characteristics)
                             }
                         }
                     }
@@ -126,11 +133,11 @@ struct CommView: View {
     
     private func disconnectButton(_ comm: AbleComm) -> some View {
         Button("Disconnect") {
-            comm.disconnect { _, error in
-                if let error = error {
-                    errorMessage = error.localizedDescription
-                } else {
+            comm.disconnect { result in
+                result.onSuccess { device in
                     refresh()
+                }.onFailure { error in
+                    errorMessage = error.localizedDescription
                 }
             }
         }
