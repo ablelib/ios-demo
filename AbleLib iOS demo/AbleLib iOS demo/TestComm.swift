@@ -27,58 +27,50 @@ class TestComm {
             self.handleResult(logger: logger, result: result) { services in
                 logger("Found game service")
                 if let service = services.first {
-//                    self.testPartyCharacteristics(logger: logger, service: service)
-                    self.testBoardCharacteristics(logger: logger, service: service)
+                    self.testPartyCharacteristics(logger: logger, service: service)
                 }
             }
         }
     }
     
     private func testPartyCharacteristics(logger: @escaping Logger, service: AbleService) {
-        self.comm.discoverCharacteristics([GAME_PARTY_CHARACTERISTICS], for: service) { result in
+        self.comm.discoverCharacteristics([GAME_PARTY_CHARACTERISTICS, GAME_BOARD_CHARACTERISTICS], for: service) { result in
             self.handleResult(logger: logger, result: result) { chars in
                 logger("Found game party characteristic")
-                if let char = chars.first {
-                    self.comm.discoverDescriptors(for: char) { result in
+                if let partyChar = chars.first(where: { $0.uuid.uuidString == GAME_PARTY_CHARACTERISTICS.uuidString }),
+                   let boardChar = chars.first(where: { $0.uuid.uuidString == GAME_BOARD_CHARACTERISTICS.uuidString }) {
+                    self.comm.discoverDescriptors(for: partyChar) { result in
                         self.handleResult(logger: logger, result: result) { descs in
                                 logger("Found client config descriptor")
-                            self.comm.writeDescriptor(descs.first!, data: Data()) { result in
-                                logger("Write descriptor result\(result)")
-                            }
-                            self.comm.setNotifyValue(false, for: char) { result in
-                                self.handleResult(logger: logger, result: result) { char in
-                                    print("Notify completion: \(String(describing: char.value))")
+                            self.comm.writeDescriptor(descs.first!, data: Data(bytes: [0x01, 0x00], count: 2)) { result in
+                                self.handleResult(logger: logger, result: result) { desc in
+                                    logger("Write descriptor result \(String(describing: desc.value))")
+                                    self.comm.readDescriptor(desc) { result in
+                                        self.handleResult(logger: logger, result: result) { desc in
+                                            print("Read desc result \(String(describing: desc.value))")
+                                            self.comm.readCharacteristic(partyChar) { result in
+                                                self.handleResult(logger: logger, result: result) { char in
+                                                    print("Read char result \(String(describing: char.value))")
+                                                    self.comm.setNotifyValue(true, for: partyChar) { result in
+                                                        self.handleResult(logger: logger, result: result) { char in
+                                                            print("Notify completion: \(String(describing: char.value))")
+                                                        }
+                                                    } onValueUpdated: { result in
+                                                        self.handleResult(logger: logger, result: result) { (char) in
+                                                            print("Notify value update: \(String(describing: char.value))")
+                                                        }
+                                                    }
+                                                    self.comm.writeCharacteristic(partyChar, data: "xoxoxoxo".data(using: .utf8)!, type: .withResponse) { result in
+                                                        self.handleResult(logger: logger, result: result) { char in
+                                                            print("Write char value: \(String(describing: char.value))")
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
                                 }
-                            } onValueUpdated: { result in
-                                self.handleResult(logger: logger, result: result) { (char) in
-                                    print("Notify value update: \(String(describing: char.value))")
-                                }
                             }
-                        }
-                    }
-                }
-            }
-        }
-    }
-    
-    private func testBoardCharacteristics(logger: @escaping Logger, service: AbleService) {
-        comm.discoverCharacteristics([GAME_BOARD_CHARACTERISTICS], for: service) { result in
-            self.handleResult(logger: logger, result: result) { chars in
-                logger("Found game board characteristic")
-                
-                if let char = chars.first {
-                    self.comm.writeCharacteristic(char, data: "xoxoxoxo".data(using: .utf8)!, type: .withResponse) { result in
-                        self.handleResult(logger: logger, result: result) { success in
-                            print("Write success: \(success)")
-                        }
-                    }
-                    self.comm.setNotifyValue(false, for: char) { result in
-                        self.handleResult(logger: logger, result: result) { char in
-                            print("Notify completion: \(String(describing: char.value))")
-                        }
-                    } onValueUpdated: { result in
-                        self.handleResult(logger: logger, result: result) { (char) in
-                            print("Notify value update: \(String(describing: char.value))")
                         }
                     }
                 }
