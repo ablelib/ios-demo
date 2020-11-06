@@ -17,69 +17,76 @@ typealias Logger = (String) -> Void
 
 class TestComm {
     private let comm: AbleComm
+    private let logger: Logger
+    private var partyChar: AbleCharacteristic!
     
-    init(comm: AbleComm) {
+    init(comm: AbleComm, logger: @escaping Logger) {
+        self.logger = logger
         self.comm = comm
-    }
-    
-    func start(_ logger: @escaping Logger) {
-        comm.discoverServices([GAME_SERVICE]) { result in
-            self.handleResult(logger: logger, result: result) { services in
+        comm.onDiscoverServices { result in
+            self.handleResult(result: result) { services in
                 logger("Found game service")
                 if let service = services.first {
-                    self.testPartyCharacteristics(logger: logger, service: service)
+                    self.comm.discoverCharacteristics([GAME_PARTY_CHARACTERISTICS, GAME_BOARD_CHARACTERISTICS], for: service)
                 }
             }
-        }
-    }
-    
-    private func testPartyCharacteristics(logger: @escaping Logger, service: AbleService) {
-        self.comm.discoverCharacteristics([GAME_PARTY_CHARACTERISTICS, GAME_BOARD_CHARACTERISTICS], for: service) { result in
-            self.handleResult(logger: logger, result: result) { chars in
+        }.onDiscoverCharacteristics { result in
+            self.handleResult(result: result) { chars in
                 logger("Found game party characteristic")
-                if let partyChar = chars.first(where: { $0.uuid.uuidString == GAME_PARTY_CHARACTERISTICS.uuidString }),
-                   let boardChar = chars.first(where: { $0.uuid.uuidString == GAME_BOARD_CHARACTERISTICS.uuidString }) {
-                    self.comm.discoverDescriptors(for: partyChar) { result in
-                        self.handleResult(logger: logger, result: result) { descs in
-                                logger("Found client config descriptor")
-                            self.comm.writeDescriptor(descs.first!, data: Data(bytes: [0x01, 0x00], count: 2)) { result in
-                                self.handleResult(logger: logger, result: result) { desc in
-                                    logger("Write descriptor result \(String(describing: desc.value))")
-                                    self.comm.readDescriptor(desc) { result in
-                                        self.handleResult(logger: logger, result: result) { desc in
-                                            print("Read desc result \(String(describing: desc.value))")
-                                            self.comm.readCharacteristic(partyChar) { result in
-                                                self.handleResult(logger: logger, result: result) { char in
-                                                    print("Read char result \(String(describing: char.value))")
-                                                    self.comm.setNotifyValue(true, for: partyChar) { result in
-                                                        self.handleResult(logger: logger, result: result) { char in
-                                                            print("Notify completion: \(String(describing: char.value))")
-                                                        }
-                                                    } onValueUpdated: { result in
-                                                        self.handleResult(logger: logger, result: result) { (char) in
-                                                            print("Notify value update: \(String(describing: char.value))")
-                                                        }
-                                                    }
-                                                    self.comm.writeCharacteristic(partyChar, data: "xoxoxoxo".data(using: .utf8)!, type: .withResponse) { result in
-                                                        self.handleResult(logger: logger, result: result) { char in
-                                                            print("Write char value: \(String(describing: char.value))")
-                                                        }
-                                                    }
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
+                if let partyChar = chars.first(where: { $0.uuid.uuidString == GAME_PARTY_CHARACTERISTICS.uuidString }) {
+                    self.partyChar = partyChar
+                    self.comm.discoverDescriptors(for: partyChar)
+                }
+            }
+        }.onDiscoverDescriptors { result in
+            self.handleResult(result: result) { descs in
+                logger("Found client config descriptor")
+                self.comm.writeDescriptor(descs.first!, data: Data(bytes: [0x01, 0x00], count: 2))
+            }
+        }.onDescriptorWrite { result in
+            self.handleResult(result: result) { desc in
+                logger("Write descriptor result \(String(describing: desc.value))")
+                self.comm.readDescriptor(desc)
+            }
+        }.onDescriptorRead { result in
+            self.handleResult(result: result) { desc in
+                print("Read desc result \(String(describing: desc.value))")
+                self.comm.readCharacteristic(self.partyChar) { result in
+                    self.handleResult(result: result) { char in
+                        print("Read char result \(String(describing: char.value))")
+                        self.comm.setNotifyValue(true, for: self.partyChar) { result in
+                            self.handleResult(result: result) { char in
+                                print("Notify completion: \(String(describing: char.value))")
+                            }
+                        } onValueUpdated: { result in
+                            self.handleResult(result: result) { (char) in
+                                print("Notify value update: \(String(describing: char.value))")
+                            }
+                        }
+                        self.comm.writeCharacteristic(self.partyChar, data: "xoxoxoxo".data(using: .utf8)!, type: .withResponse) { result in
+                            self.handleResult(result: result) { char in
+                                print("Write char value: \(String(describing: char.value))")
                             }
                         }
                     }
                 }
             }
+        }.onCharacteristicWrite { result in
+            self.handleResult(result: result) { char in
+                logger("Write char result \(String(describing: char.value))")
+            }
+        }.onCharacteristicRead { result in
+            self.handleResult(result: result) { char in
+                logger("Read char result \(String(describing: char.value))")
+            }
         }
     }
     
-    private func handleResult<Success, Failure>(logger: @escaping Logger,
-                                                result: Result<Success, Failure>,
+    func start() {
+        comm.discoverServices([GAME_SERVICE])
+    }
+    
+    private func handleResult<Success, Failure>(result: Result<Success, Failure>,
                                                 onSuccess: @escaping (Success) -> Void) {
         result.onFailure { error in
             logger(error.localizedDescription)

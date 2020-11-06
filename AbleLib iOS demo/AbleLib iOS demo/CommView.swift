@@ -93,9 +93,9 @@ struct CommView: View {
                 }
                 Spacer()
                 Button("Game comm") {
-                    TestComm(comm: comm).start { line in
+                    TestComm(comm: comm) { line in
                         print(line)
-                    }
+                    }.start()
                 }
             }
         }
