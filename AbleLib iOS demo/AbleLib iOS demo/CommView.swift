@@ -92,7 +92,7 @@ struct CommView: View {
                     }
                 }
                 Spacer()
-                Button("Game comm") {
+                Button("Demo peripheral comm") {
                     TestComm(comm: comm) { line in
                         print(line)
                     }.start()
