@@ -27,9 +27,9 @@ struct ScanView: View {
                 } else {
                     DevicesList(devices: $devices) { device in
                         Group {
-                            if AbleDeviceStorage.find(device: device) == nil {
+                            if AbleDeviceStorage.default.find(device: device) == nil {
                                 Button {
-                                    AbleDeviceStorage.add(device: device)
+                                    AbleDeviceStorage.default.add(device: device)
                                     refresh.toggle()
                                 } label: {
                                     Text("Store")

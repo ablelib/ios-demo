@@ -9,7 +9,7 @@ import SwiftUI
 import Able
 
 struct CommView: View {
-    @State private var phase = Phase.disconnected(Array(AbleDeviceStorage.devices))
+    @State private var phase = Phase.disconnected(Array(AbleDeviceStorage.default.devices))
     @State private var errorMessage: String? = nil
     
     var body: some View {
@@ -48,9 +48,9 @@ struct CommView: View {
                 DevicesList(devices: .constant(devices)) { device in
                     Button {
                         let comm = device.comm
-                        comm?.connect { result in
+                        comm.connect { result in
                             result.onSuccess { device in
-                                phase = .connected(comm!)
+                                phase = .connected(comm)
                             }.onFailure { error in
                                 errorMessage = error.localizedDescription
                             }
@@ -73,7 +73,7 @@ struct CommView: View {
     }
     
     private func refresh() {
-        phase = .disconnected(Array(AbleDeviceStorage.devices))
+        phase = .disconnected(Array(AbleDeviceStorage.default.devices))
     }
     
     private func connectedPanel(_ comm: AbleComm) -> some View {

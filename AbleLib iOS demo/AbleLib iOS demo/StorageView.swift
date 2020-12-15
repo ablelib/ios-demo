@@ -18,7 +18,7 @@ struct StorageView: View {
             } else {
                 DevicesList(devices: $devices) { device in
                     Button {
-                        AbleDeviceStorage.remove(device: device)
+                        AbleDeviceStorage.default.remove(device: device)
                         refresh()
                     } label: {
                         Text("Delete")
@@ -38,7 +38,7 @@ struct StorageView: View {
     }
     
     private func refresh() {
-        devices = Array(AbleDeviceStorage.devices)
+        devices = Array(AbleDeviceStorage.default.devices)
     }
 }
 
