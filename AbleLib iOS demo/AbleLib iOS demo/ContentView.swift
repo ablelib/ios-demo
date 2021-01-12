@@ -29,6 +29,11 @@ struct ContentView: View {
                     Image(systemName: "paperplane")
                     Text("Comm")
                 }
+            SocketView()
+                .tabItem {
+                    Image(systemName: "waveform.circle")
+                    Text("Sockets")
+                }
             SettingsView()
                 .tabItem {
                     Image(systemName: "gear")

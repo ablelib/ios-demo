@@ -91,12 +91,6 @@ struct CommView: View {
                         }
                     }
                 }
-                Spacer()
-                Button("Demo peripheral comm") {
-                    TestComm(comm: comm) { line in
-                        print(line)
-                    }.start()
-                }
             }
         }
     }
